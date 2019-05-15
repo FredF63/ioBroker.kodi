@@ -1,4 +1,5 @@
 # Kodi's JSON-RPC-API für ioBroker
+Die offizielle Kodi Dokumentation der JSON-RCP-API ist [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für V6) ist [hier](http://kodi.wiki/view/JSON-RPC_API/v6) zu finden.
 
 ***Hinweis: Dieser Adapter benötigt Node 0.12+***
 
@@ -16,7 +17,7 @@ Die JSON-RPC-API verwendet den Standardport 9090. Um diesen zu ändern, muss ein
 ![http enable.](admin/web.jpg)
 
 ## Treiberkonfiguration
-В найстройках драйвера указывается IP адрес KODI и порт для JSON-RPC API (по умолчанию 9090).
+Die Treibereinstellungen geben die KODI-IP-Adresse und den Port für die JSON-RPC-API an (Standard ist 9090).
 
 ## Using
 ### ShowNotif:
