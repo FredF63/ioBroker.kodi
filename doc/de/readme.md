@@ -1,24 +1,31 @@
-# Kodi's JSON-RPC-API für ioBroker
-Die offizielle Kodi Dokumentation der JSON-RCP-API ist [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für V6) ist [hier](http://kodi.wiki/view/JSON-RPC_API/v6) zu finden.
+# Kodi's JSON-RPC-API
+Dieser Adapter nutzt Kodi's JSON-RPC-API. Die offizielle Kodi Dokumentation der API ist [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für V6) ist [hier](http://kodi.wiki/view/JSON-RPC_API/v6) zu finden.
 
-***Hinweis: Dieser Adapter benötigt Node 0.12+***
+***Hinweis: Dieser Adapter benötigt Node größer 0.12***
 
 ## Kodi Konfiguration
 Im Hauptmenü von Kodi in der linken Menüspalte ganz oben über das Zahnradsymbol die Systemeinstellungen öffnen. Über Dienste dann Steuerung auswählen und `Steuerung über HTTP erlauben`, `Fernsteuerung durch Anwendungen dieses Rechners erlauben` und `Fernsteuerung durch Anwendungen anderer Rechners erlauben` auswählen.
 
 ![Fernsteuerung erlauben](media/Fernsteuerung.PNG)
 
-Die JSON-RPC-API verwendet den Port 9090. Um diesen Port zu ändern, muss eine Datei advancedsettings.xml erzeugt werden, die Standardmäßig nicht vorhanden ist und Änderungen vornehmen siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
+## Adapterkonfiguration
+**IP-Adresse:** vom Kodi System eintragen.
+**Port jsonrpc:** voreingestellt auf 9090.
+**Port Webserver KODI:** voreingestellt ist 8080, entsprechende Einstellung der Kodi Konfiguration
+**Login:** entsprechende Einstellung der Kodi Konfiguration
+**Password:** entsprechende Einstellung der Kodi Konfiguration
+
+![Adapterkonfig](media/Adapterkonfig.PNG)
+
+Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll, muss in Kodi eine Datei advancedsettings.xml siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) mit folgendem Inhalt erzeugt werden: 
 
 ```xml
 <jsonrpc>
     <compactoutput>true</compactoutput>
-    <tcpport>9999</tcpport>
+    <tcpport>**port**</tcpport>
 </jsonrpc>
 ```
 
-## Treiberkonfiguration
-Die Treibereinstellungen geben die KODI-IP-Adresse und den Port für die JSON-RPC-API an (Standard ist 9090).
 
 ## Using
 ### ShowNotif:
