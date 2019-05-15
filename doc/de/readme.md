@@ -22,7 +22,7 @@ Im Hauptmenü von Kodi in der linken Menüspalte ganz oben über das Zahnradsymb
 
 ![Adapterkonfig](media/Adapterkonfig.PNG)
 
-Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll, muss in Kodi eine Datei advancedsettings.xml siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) mit folgendem Inhalt erzeugt werden: 
+Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll, muss im Kodi System die Datei advancedsettings.xml siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) mit folgendem Inhalt erzeugt werden: 
 
 ```xml
 <jsonrpc>
@@ -32,7 +32,7 @@ Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll
 ```
 
 
-## Using
+## Nutzung einzelner Objekte:
 ### ShowNotif:
 Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
 
@@ -51,7 +51,7 @@ Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll
  * Внимание;Протечка воды
  * Протечка воды
 
-Так же сообщения можно отправлять из драйвера javascript:
+Es können auch Nachrichten vom Javascript-Treiber gesendet werden:
 ```js
 sendTo("kodi.0", {
     message:  'Возможно протечка воды ', //Текст сообщения
@@ -66,53 +66,54 @@ sendTo("kodi.0", {
   ТВ канал - Discovery Science найдет как по полному наименованию так и по discover,
 
 ### Youtube:
-Для открытия видео с сайта youtube достаточно записать код видео в данный статус. Начиная с версии 0.1.5 и выше можно вставлять прямую ссылку на видео, а также код или полную ссылку на плейлист.
-Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+Bei installierten YouTube Addon reicht es aus, den Videocode in diesem Feld einzutragen und die Wiedergabe startet. Ab Version 0.1.5 kann ein direkter Link zum Video, oder einen Code oder einen vollständigen Link zur Wiedergabeliste eingefügt werden.
+
+Beispiel: Um dieses [Video](https://www.youtube.com/watch?v=SNd9h5eTSA4) zu öffnen, muss SNd9h5eTSA4 eingesetzt werden.
 
 ### Open:
-Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла.
-После записи значения начнется воспроизведение на проигрователе KODI.
+Hier kann ein Link zu Inhalten im Internet oder der Pfad zu einer lokalen Mediendatei hinterlegt werden.
+Nachdem der Wert geschrieben wurde, beginnt der Kodi-Player mit der Wiedergabe.
 
 ### Position:
-Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую и KODI тут же перейдет к воспроизведению этой позиции.
+Zeigt aktuellen Titel der Wiedergabeliste.
 
 ### Seek:
-Текущее значение позиции воспроизведения в процентах от 0 до 100.
+Zeigt die aktuelle Wiedergabeposition von 0 bis 100%.
 
 ### Repeat:
-Повтор воспроизведения, принимает следующие значения:
-* off - повтор воспроизведения отключен
-* on - повтор воспроизведения текущего трека
-* all - повтор всего плейлиста
+Wiederholt die Wiedergabe und mit folgenden Werte:
+* off - Reapeat deaktiviert
+* on - Wiederholt die Wiedergabe des aktuellen Titels
+* all - Wiederholt alle Wiedergabelisten
 
 ### Shuffle:
-Перемешивание списка треков в плейлисте для случайного воспроизведения.
-Принимает значения true и false
+Zufällige Wiedergabe der Wiedergabeliste starten
 
 ### Play:
-Старт воспроизведения (true, false)
+Startet die Wiedergabe
 
 ### Speed:
-Скорость воспроизведения. Фиксированные значения -32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32, а также increment и decrement
+Die Wiedergabegeschwindigkeit kann hier mit folgenden Werten eingestellt werden:
+-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32
 
 ### Directory:
-Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
+Der Pfad zum Ordner oder Laufwerk wird hier angezeigt.
 
 ### ActivateWindow:
-Активизирует в проигрывателе окно. Поддерживает следующий список:
+Steuert das Playerfenster. Folgende Befehle können damit gesendet werden:
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
 ### ExecuteAction:
-Можно выполнить одно из следующих действий:
+Folgende Befehle können übermittelt werden:
 ```
 "left", "right", "up", "down", "pageup", "pagedown", "select", "highlight", "parentdir", "parentfolder", "back", "previousmenu", "info", "pause", "stop", "skipnext", "skipprevious", "fullscreen", "aspectratio", "stepforward", "stepback", "bigstepforward", "bigstepback", "osd", "showsubtitles", "nextsubtitle", "codecinfo", "nextpicture", "previouspicture", "zoomout", "zoomin", "playlist", "queue", "zoomnormal", "zoomlevel1", "zoomlevel2", "zoomlevel3", "zoomlevel4", "zoomlevel5", "zoomlevel6", "zoomlevel7", "zoomlevel8", "zoomlevel9", "nextcalibration", "resetcalibration", "analogmove", "rotate", "rotateccw", "close", "subtitledelayminus", "subtitledelay", "subtitledelayplus", "audiodelayminus", "audiodelay", "audiodelayplus", "subtitleshiftup", "subtitleshiftdown", "subtitlealign", "audionextlanguage", "verticalshiftup", "verticalshiftdown", "nextresolution", "audiotoggledigital", "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "osdleft", "osdright", "osdup", "osddown", "osdselect", "osdvalueplus", "osdvalueminus", "smallstepback", "fastforward", "rewind", "play", "playpause", "delete", "copy", "move", "mplayerosd", "hidesubmenu", "screenshot", "rename", "togglewatched", "scanitem", "reloadkeymaps", "volumeup", "volumedown", "mute", "backspace", "scrollup", "scrolldown", "analogfastforward", "analogrewind", "moveitemup", "moveitemdown", "contextmenu", "shift", "symbols", "cursorleft", "cursorright", "showtime", "analogseekforward", "analogseekback", "showpreset", "presetlist", "nextpreset", "previouspreset", "lockpreset", "randompreset", "increasevisrating", "decreasevisrating", "showvideomenu", "enter", "increaserating", "decreaserating", "togglefullscreen", "nextscene", "previousscene", "nextletter", "prevletter", "jumpsms2", "jumpsms3", "jumpsms4", "jumpsms5", "jumpsms6", "jumpsms7", "jumpsms8", "jumpsms9", "filter", "filterclear", "filtersms2", "filtersms3", "filtersms4", "filtersms5", "filtersms6", "filtersms7", "filtersms8", "filtersms9", "firstpage", "lastpage", "guiprofile", "red", "green", "yellow", "blue", "increasepar", "decreasepar", "volampup", "volampdown", "channelup", "channeldown", "previouschannelgroup", "nextchannelgroup", "leftclick", "rightclick", "middleclick", "doubleclick", "wheelup", "wheeldown", "mousedrag", "mousemove", "noop".
 
 ```
 ### System:
- - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имеется)
- - Hibernate - включение спящего режима
- - Reboot -  перезагрузка системы
- - Shutdown - выключает систему
- - Suspend - приостанавливает Kodi
+ - EjectOpticalDrive - Entfernt oder schließt ein evtl. vorhandenes optische Laufwerk
+ - Hibernate - Versetzt das System, auf dem Kodi ausgeführt wird, in den Ruhezustand
+ - Reboot -  Startet das System, auf dem Kodi ausgeführt wird, neu
+ - Shutdown - Fährt das System, auf dem Kodi ausgeführt wird, herunter
+ - Suspend - Unterbricht das System, auf dem Kodi ausgeführt wird
