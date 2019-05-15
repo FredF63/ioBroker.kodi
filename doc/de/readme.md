@@ -5,7 +5,8 @@ Die offizielle Kodi Dokumentation der JSON-RCP-API ist [hier](http://kodi.wiki/v
 
 ## Kodi Konfiguration
 Im Hauptmenü von Kodi in der linken Menüspalte ganz oben über das Zahnradsymbol die Systemeinstellungen öffnen. Über Dienste dann Steuerung auswählen und `Steuerung über HTTP erlauben`, `Fernsteuerung durch Anwendungen dieses Rechners erlauben` und `Fernsteuerung durch Anwendungen anderer Rechners erlauben` auswählen.
-![Fernsteuerung erlauben.](media/Fernsteuerung.png)
+
+![Fernsteuerung erlauben](media/Fernsteuerung.png)
 
 Die JSON-RPC-API verwendet den Port 9090. Um diesen Port zu ändern, muss eine Datei advancedsettings.xml erzeugt werden, die Standardmäßig nicht vorhanden ist und Änderungen vornehmen siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
 
