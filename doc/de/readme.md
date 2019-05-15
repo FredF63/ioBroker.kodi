@@ -1,3 +1,5 @@
+Mit diesem Adapter kann ein Kodi Client über ioBroker verwaltet und gesteuert werden und Informationen aus dem Kodi Client werden in ioBroker als Objekte angezeigt.
+
 # Kodi's JSON-RPC-API
 Dieser Adapter nutzt Kodi's JSON-RPC-API. Die offizielle Kodi Dokumentation der API ist [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für V6) ist [hier](http://kodi.wiki/view/JSON-RPC_API/v6) zu finden.
 
@@ -13,37 +15,37 @@ Im Hauptmenü von Kodi in der linken Menüspalte ganz oben über das Zahnradsymb
 
 **Port jsonrpc:** voreingestellt auf 9090.
 
-**Port Webserver KODI:** voreingestellt ist 8080, entsprechende Einstellung der Kodi Konfiguration
+**Port Webserver KODI:** voreingestellt ist 8080, entsprechend der Einstellung in der Kodi Konfiguration
 
-**Login:** entsprechende Einstellung der Kodi Konfiguration
+**Login:** entsprechend der Einstellung in der Kodi Konfiguration
 
-**Password:** entsprechende Einstellung der Kodi Konfiguration
+**Password:** entsprechende der Einstellung in der Kodi Konfiguration
 
 
 ![Adapterkonfig](media/Adapterkonfig.PNG)
 
-Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll, muss im Kodi System die Datei advancedsettings.xml siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) mit folgendem Inhalt erzeugt werden: 
+Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll, muss im Kodi System die Datei advancedsettings.xml erstellt werden. [Hier](http://kodi.wiki/view/AdvancedSettings.xml) nachsehen unter welchem Verzeichnis diese Datei abgelegt werden muss. Die Datei muss folgenden Inhalt haben: 
 
 ```xml
 <jsonrpc>
     <compactoutput>true</compactoutput>
-    <tcpport>**port**</tcpport>
+    <tcpport>9999</tcpport>
 </jsonrpc>
 ```
-
+Port 9999 ist nur als Beispiel gewählt.
 
 ## Nutzung einzelner Objekte:
 ### ShowNotif:
 Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
 
 **Image:**
-Уровень сообщения
+Nachrichtenebene
   * 'info' - 0 (default),
   * 'warning' - 1,
   * 'error' - 2.
 
 **displaytime:**
-Время отображения сообщения в милисекундах, минимум 1500 макс 30000 мс.
+Meldungsanzeigezeit einstellbar von 1.500 bis 30.000ms.
 
 **Beispiel:**
  * 1;Внимание;Протечка воды;15000
@@ -51,7 +53,7 @@ Die JSON-RPC-API verwendet den Port 9090. Fall dieser Port geändert werden soll
  * Внимание;Протечка воды
  * Протечка воды
 
-Es können auch Nachrichten vom Javascript-Treiber gesendet werden:
+Es können auch Nachrichten vom javascript Adapter gesendet werden:
 ```js
 sendTo("kodi.0", {
     message:  'Возможно протечка воды ', //Текст сообщения
@@ -61,12 +63,12 @@ sendTo("kodi.0", {
 });
 ```
 ### SwitchPVR:
-Переключение PVR IPTV каналов по названию канала в плейлисте.
-**Пример:**
-  ТВ канал - Discovery Science найдет как по полному наименованию так и по discover,
+Umschalten von PVR IPTV-Kanälen anhand des Kanalnamens in der Wiedergabeliste.
+**Beispiel:** Fernsehsender - Discovery Science findet sowohl mit vollem Namen als auch mit entdecken,
+
 
 ### Youtube:
-Bei installierten YouTube Addon reicht es aus, den Videocode in diesem Feld einzutragen und die Wiedergabe startet. Ab Version 0.1.5 kann ein direkter Link zum Video, oder einen Code oder einen vollständigen Link zur Wiedergabeliste eingefügt werden.
+Bei installierten YouTube Addon in Kodi reicht es aus, den Videocode in diesem Feld einzutragen und die Wiedergabe startet.
 
 Beispiel: Um dieses [Video](https://www.youtube.com/watch?v=SNd9h5eTSA4) zu öffnen, muss SNd9h5eTSA4 eingesetzt werden.
 
