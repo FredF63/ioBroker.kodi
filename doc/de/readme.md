@@ -1,4 +1,4 @@
-Mit diesem Adapter kann ein Kodi Client über ioBroker verwaltet und gesteuert werden und Informationen aus dem Kodi Client werden in ioBroker als Objekte angezeigt.
+Mit diesem Adapter kann ein Kodi Client über ioBroker verwaltet und gesteuert werden. Informationen aus dem Kodi Client werden in ioBroker als Objekte angezeigt.
 
 # Kodi's JSON-RPC-API
 Dieser Adapter nutzt Kodi's JSON-RPC-API. Die offizielle Kodi Dokumentation der API ist [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für V6) ist [hier](http://kodi.wiki/view/JSON-RPC_API/v6) zu finden.
