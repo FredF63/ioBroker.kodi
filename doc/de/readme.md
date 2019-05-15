@@ -7,7 +7,6 @@ Remote control enable.
 ![Remote control enable.](admin/remote.jpg)
 Die JSON-RPC-API verwendet den Standardport 9090. Um diesen zu ändern, muss eine Datei advancedsettings.xml erzeugt werden, die Standardmäßig nicht vorhanden ist und Änderungen vornehmen siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
 
-_Note: The advancedsettings.xml file does not exist by default. You have to create it first!_
 ```xml
 <jsonrpc>
     <compactoutput>true</compactoutput>
@@ -32,7 +31,7 @@ _Note: The advancedsettings.xml file does not exist by default. You have to crea
 **displaytime:**
 Время отображения сообщения в милисекундах, минимум 1500 макс 30000 мс.
 
-**Пример:**
+**Beispiel:**
  * 1;Внимание;Протечка воды;15000
  * Внимание;Протечка воды;2;10000
  * Внимание;Протечка воды
