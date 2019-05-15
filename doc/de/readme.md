@@ -1,11 +1,11 @@
-# Kodi's JSON-RPC API für ioBroker
+# Kodi's JSON-RPC-API für ioBroker
 
 ***Hinweis: Dieser Adapter benötigt Node 0.12+***
 
 ## Kodi Konfiguration
 Remote control enable.
 ![Remote control enable.](admin/remote.jpg)
-JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести изменения в файл [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
+Die JSON-RPC-API verwendet den Standardport 9090. Um diesen zu ändern, muss eine Datei advancedsettings.xml erzeugt werden, die Standardmäßig nicht vorhanden ist und Änderungen vornehmen siehe [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
 
 _Note: The advancedsettings.xml file does not exist by default. You have to create it first!_
 ```xml
@@ -16,7 +16,7 @@ _Note: The advancedsettings.xml file does not exist by default. You have to crea
 ```
 ![http enable.](admin/web.jpg)
 
-## Конфигурация драйвера
+## Treiberkonfiguration
 В найстройках драйвера указывается IP адрес KODI и порт для JSON-RPC API (по умолчанию 9090).
 
 ## Using
