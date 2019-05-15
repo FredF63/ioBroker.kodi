@@ -10,10 +10,15 @@ Im Hauptmenü von Kodi in der linken Menüspalte ganz oben über das Zahnradsymb
 
 ## Adapterkonfiguration
 **IP-Adresse:** vom Kodi System eintragen.
+
 **Port jsonrpc:** voreingestellt auf 9090.
+
 **Port Webserver KODI:** voreingestellt ist 8080, entsprechende Einstellung der Kodi Konfiguration
+
 **Login:** entsprechende Einstellung der Kodi Konfiguration
+
 **Password:** entsprechende Einstellung der Kodi Konfiguration
+
 
 ![Adapterkonfig](media/Adapterkonfig.PNG)
 
